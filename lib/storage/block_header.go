@@ -14,6 +14,7 @@ import (
 // by timestamp.
 //
 // A single time series may span multiple blocks.
+// 存储在index.bin，保存了block位置、编码、以及用于筛选、二分查找的最大最小值
 type blockHeader struct {
 	// TSID is the TSID for the block.
 	// Multiple blocks may have the same TSID.

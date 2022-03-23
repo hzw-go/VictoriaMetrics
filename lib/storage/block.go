@@ -19,6 +19,7 @@ const (
 	maxBlockSize = 8 * maxRowsPerBlock
 )
 
+// 单个序列的一段数据，通过blockHeader得到
 // Block represents a block of time series values for a single TSID.
 type Block struct {
 	bh blockHeader

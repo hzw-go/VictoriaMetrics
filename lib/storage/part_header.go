@@ -15,6 +15,8 @@ import (
 )
 
 // partHeader represents part header.
+// 前四个字段通过解析part的path得到，如：60244_508_20220321075554.532_20220321082454.532_16DE5650B822F840
+// MinDedupInterval通过读取min_dedup_interval得到
 type partHeader struct {
 	// RowsCount is the total number of rows in the part.
 	RowsCount uint64

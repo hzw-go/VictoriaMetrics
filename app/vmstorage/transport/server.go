@@ -648,6 +648,7 @@ func (s *Server) processVMSelectLabelsOnTimeRange(ctx *vmselectRequestCtx) error
 	return nil
 }
 
+// 查找tag keys
 func (s *Server) processVMSelectLabels(ctx *vmselectRequestCtx) error {
 	vmselectLabelsRequests.Inc()
 

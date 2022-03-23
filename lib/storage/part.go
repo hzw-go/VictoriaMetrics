@@ -27,21 +27,29 @@ var (
 )
 
 // part represents a searchable part containing time series data.
+// 存储point数据
+// todo 是否类似于influxdb的shard？不同part时间范围是否有重叠？
 type part struct {
+	// 解析path得到
 	ph partHeader
 
 	// Filesystem path to the part.
 	//
-	// Empty for in-memory part.
+	// Empty for in-memory part
+	// part底层的文件目录，为空代表是内存part
 	path string
 
 	// Total size in bytes of part data.
+	// 以下四个文件大小总和
 	size uint64
 
+	// timestamps.bin文件
 	timestampsFile fs.MustReadAtCloser
+	// values.bin文件
 	valuesFile     fs.MustReadAtCloser
+	// index.bin文件
 	indexFile      fs.MustReadAtCloser
-
+	// metaindex.bin文件
 	metaindex []metaindexRow
 }
 

@@ -12,6 +12,8 @@ import (
 // metaindexRow is a single metaindex row.
 //
 // The row points to a single index block containing block headers.
+// 从metaindex.bin解析得到，一个metaindex.bin有多个metaindexRow
+// 用于查找、过滤block。类似influxdb里面的tsm index
 type metaindexRow struct {
 	// TSID is the first TSID in the corresponding index block.
 	TSID TSID
@@ -23,6 +25,7 @@ type metaindexRow struct {
 	MaxTimestamp int64
 
 	// IndexBlockOffset is the offset of index block.
+	// 从index.bin中解析blockHeader
 	IndexBlockOffset uint64
 
 	// BlockHeadersCount is the number of block headers

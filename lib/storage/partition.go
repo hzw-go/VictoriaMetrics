@@ -167,9 +167,11 @@ type partWrapper struct {
 	refCount uint64
 
 	// The part itself.
+	// 磁盘part
 	p *part
 
 	// non-nil if the part is inmemoryPart.
+	// 内存part
 	mp *inmemoryPart
 
 	// Whether the part is in merge now.
